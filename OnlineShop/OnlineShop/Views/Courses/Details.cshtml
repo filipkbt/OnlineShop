@@ -1,0 +1,47 @@
+﻿@model OnlineShop.Models.Course
+@using OnlineShop.Infrastructure
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="CategoriesListContent">
+    @Html.Action("CategoriesMenu")
+    <div id="KategorieListPrawaSekcja">
+        <div id="Breadcrumb">
+            <img src="../Content/Images/dommaly.png" />
+            <a href="link">
+                Start > ASP.NET
+            </a>
+        </div>
+        <section id="SectionCourse">
+            <div id="CourseLeft">
+                <img src="@Url.CoursesImagesPath(Model.ImageName)" />
+            </div>
+            <div id="CourseRight">
+                <div id="CourseName">
+                    <h1>
+                        @Model.Name
+                    </h1>
+                    <h2>
+                        @Model.Author
+                    </h2>
+                </div>
+                <div id="KursCena">
+                    <div>
+                        @Model.Price<span>PLN</span>
+                    </div>
+                    <a href="@Url.Action("AddToBasket","Basket", new { id = Model.CourseId })"></a>
+                </div>
+                <div id="KursOpis">
+                    @Model.Description
+                </div>
+                <div id="KursInfo">
+                    @Model.ShortDescription
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

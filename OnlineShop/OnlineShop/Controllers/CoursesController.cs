@@ -28,7 +28,9 @@ namespace OnlineShop.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            var course = database.Courses.Find(id);
+
+            return View(course);
         }
 
         [ChildActionOnly]
