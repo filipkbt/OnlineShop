@@ -1,144 +1,72 @@
-﻿
+﻿@model OnlineShop.ViewModels.HomeViewModel
+@using OnlineShop.Infrastructure
+
 @{
     ViewBag.Title = "Online shop";
 }
 
-    <nav class="categoriesHorizontal">
-        <ul>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/aspnet.png); ">
-                    ASP.NET
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/csharp.png); ">
-                    C#
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/css.png); ">
-                    CSS
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/javascript.png); ">
-                    Java Script
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/jquery.png); ">
-                    JQuery
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/xml.png); ">
-                    XML
-                </a>
-            </li>
-            <li>
-                <a href="link" style="background-image: url(../Content/Categories/html.png); ">
-                    HTML
-                </a>
-            </li>
-        </ul>
-        <a href="link">
-            <img id="baner" src="../Content/Images/baner.png" />
-        </a>
-    </nav>
+<nav class="categoriesHorizontal">
+    <ul>
+        @foreach (var category in Model.Categories)
+        {
+        <li>
+            <a href="@Url.Action("List","Courses", new { Name = category.Name.ToLower() })"
+               style="background-image: url(@Url.CategoriesIconsPath(category.ImageName))">@category.Name</a>
+        </li>
+                    }
+    </ul>
 
-    <section>
-        <ul class="KursyTrzyKolumny duzaListaKursy">
+    <a href="link">
+        <img id="baner" src="../Content/Images/baner.png" />
+    </a>
+</nav>
+
+<section>
+    <ul class="CoursesThreeColumns bigListCourses">
+        @foreach (var bestseller in Model.Bestsellers)
+        {
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="addToBasketLink" href="@Url.Action("AddToBasket","Basket", new { id = bestseller.CourseId })">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="courseDetailsLink" href="@Url.Action("AddToBasket","Basket", new { id = bestseller.CourseId })">
                         <div class="bestsellerFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekcss.png" />
+                        <img class="course" src="@Url.CoursesImagesPath(bestseller.ImageName)" />
                         <h1>
-                            Tutaj będzie tytuł
+                            @bestseller.Name - @bestseller.Author
                         </h1>
                     </a>
                 </article>
             </li>
+        }
+       
+    </ul>
+</section>
+
+<section>
+    <ul class="CoursesThreeColumns bigListCourses">
+        @foreach (var newCourse in Model.NewCourses)
+        {
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="addToBasketLink" href="@Url.Action("AddToBasket","Basket", new { id = newCourse.CourseId })">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekhtml.png" />
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addToBasketLink" href="link">
-                        <img src="../Content/Images/koszyk.png" />
-                    </a>
-                    <a class="courseDetailsLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekjquery.png" />
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-        </ul>
-    </section>
-    <section>
-        <ul class="KursyTrzyKolumny duzaListaKursy">
-            <li>
-                <article>
-                    <a class="addToBasketLink" href="link">
-                        <img src="../Content/Images/koszyk.png" />
-                    </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="courseDetailsLink" href="@Url.Action("Details","Courses", new { id = newCourse.CourseId} )">
                         <div class="newFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekaspnet.png" />
+                        <img class="course" src="@Url.CoursesImagesPath(newCourse.ImageName)" />
                         <h1>
-                            Tutaj będzie tytuł
+                            @newCourse.Name - @newCourse.Author
                         </h1>
                     </a>
                 </article>
             </li>
-            <li>
-                <article>
-                    <a class="addToBasketLink" href="link">
-                        <img src="../Content/Images/koszyk.png" />
-                    </a>
-                    <a class="courseDetailsLink" href="link">
-                        <div class="newFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekcsharp.png" />
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addToBasketLink" href="link">
-                        <img src="../Content/Images/koszyk.png" />
-                    </a>
-                    <a class="courseDetailsLink" href="link">
-                        <div class="newFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekmvc.png" />
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-        </ul>
-    </section>
-  
+        }
+    </ul>
+</section>
+
+
 
 
 

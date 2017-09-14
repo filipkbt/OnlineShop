@@ -16,13 +16,13 @@ namespace OnlineShop.DAL
         {
             var categories = new List<Category>
             {
-                new Category() {CategoryId = 1, Name = "ASP", ImageName="asp.png", Description="ASP.NET MVC Description" },
-                new Category() {CategoryId = 2, Name = "Java", ImageName="java.png", Description="Java Description" },
-                new Category() {CategoryId = 3, Name = "PHP", ImageName="php.png", Description="PHP Description" },
+                new Category() {CategoryId = 1, Name = "ASP.NET", ImageName="aspnet.png", Description="ASP.NET MVC Description" },
+                new Category() {CategoryId = 2, Name = "JavaScript", ImageName="javascript.png", Description="JavaScript Description" },
+                new Category() {CategoryId = 3, Name = "jQuery", ImageName="jquery.png", Description="jQuery Description" },
                 new Category() {CategoryId = 4, Name = "HTML", ImageName="html.png", Description="HTML Description" },
                 new Category() {CategoryId = 5, Name = "CSS", ImageName="css.png", Description="CSS Description" },
                 new Category() {CategoryId = 6, Name = "XML", ImageName="xml.png", Description="XML Description" },
-                new Category() {CategoryId = 7, Name = "C#", ImageName="c#.png", Description="C# Description" },
+                new Category() {CategoryId = 7, Name = "C#", ImageName="csharp.png", Description="C# Description" },
             };
 
             categories.ForEach(category => context.Categories.AddOrUpdate(category));
