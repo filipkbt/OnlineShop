@@ -254,6 +254,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Courses\List.cshtml" />
     <Content Include="Views\Basket\AddToBasket.cshtml" />
+    <Content Include="Views\Courses\_CategoriesMenu.cshtml" />
+    <Content Include="Views\Courses\_CoursesList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

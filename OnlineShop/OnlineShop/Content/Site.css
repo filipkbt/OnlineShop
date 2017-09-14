@@ -200,11 +200,11 @@ nav.categoriesHorizontal ul {
         }
 
 
-#ListaKategoriZawartosc {
+#CategoriesListContent {
     overflow: hidden;
 }
 
-#KategorieListPrawaSekcja {
+#CategoriesListRightSection {
     float: left;
     margin-left: 29px;
 }
@@ -220,7 +220,7 @@ nav.categoriesHorizontal ul {
     }
 
 
-nav.KategorieVertical {
+nav.CategoriesVertical {
     width: 202px;
     font-size: 18px;
     font-family: 'Segoe UI Semibold', 'Segoe WP', 'Segoe UI';
@@ -228,16 +228,16 @@ nav.KategorieVertical {
     float: left;
 }
 
-    nav.KategorieVertical ul li {
+    nav.CategoriesVertical ul li {
         height: 50px;
         line-height: 50px;
     }
 
-        nav.KategorieVertical ul li:hover {
+        nav.CategoriesVertical ul li:hover {
             background-color: #EBEBEB;
         }
 
-        nav.KategorieVertical ul li a {
+        nav.CategoriesVertical ul li a {
             width: 100%;
             display: block;
             height: 100%;
@@ -247,19 +247,19 @@ nav.KategorieVertical {
             background-position-y: 50%;
         }
 
-#SekcjaKurs {
+#SectionCourse {
     width: 768px;
     float: left;
     margin-top: 20px;
 }
 
-#KursLewa {
+#CourseLeft {
     width: 335px;
     float: left;
     margin-right: 28px;
 }
 
-    #KursLewa img {
+    #CourseLeft img {
         height: 335px;
         float: left;
         display: block;
@@ -302,16 +302,16 @@ nav.KategorieVertical {
         background-image: url(../Content/Images/twitter-share.png);
     }
 
-#KursPrawa {
+#CourseRight {
     float: left;
     width: 405px;
 }
 
-    #KursPrawa #KursNazwa {
+    #CourseRight #CourseName {
         border: 5px solid #0a5d7c;
     }
 
-        #KursPrawa #KursNazwa > h1 {
+        #CourseRight #CourseName > h1 {
             margin-top: 20px;
             font-family: 'Segoe UI Light';
             font-size: 38px;
@@ -321,7 +321,7 @@ nav.KategorieVertical {
             text-align: center;
         }
 
-        #KursPrawa #KursNazwa > h2 {
+        #CourseRight #CourseName > h2 {
             margin-top: 15px;
             margin-bottom: 20px;
             font-size: 20px;
@@ -332,11 +332,11 @@ nav.KategorieVertical {
             text-align: center;
         }
 
-#KursCena {
+#CoursePrice {
     overflow: hidden;
 }
 
-    #KursCena > div {
+    #CoursePrice > div {
         float: left;
         width: 332px;
         height: 67px;
@@ -348,13 +348,13 @@ nav.KategorieVertical {
         font-weight: normal;
     }
 
-        #KursCena > div > span {
+        #CoursePrice > div > span {
             font-size: 19px;
             font-family: 'Segoe UI Light';
             margin-left: 5px;
         }
 
-    #KursCena > a {
+    #CoursePrice > a {
         float: left;
         width: 73px;
         height: 67px;
@@ -383,7 +383,7 @@ nav.KategorieVertical {
     padding-top: 40px;
 }
 
-#SekcjaListaKategori {
+#SectionCategoriesList {
     width: 768px;
     margin-top: 20px;
 }
@@ -401,16 +401,16 @@ ul.bigListCourses li {
         top: 46%;
     }
 
-ul.MalaListaKategorii li {
+ul.SmallCategoriesList li {
     width: 256px;
     height: 256px;
 }
 
-    ul.MalaListaKategorii li a h1 {
+    ul.SmallCategoriesList li a h1 {
         top: 40%;
     }
 
-    ul.MalaListaKategorii li a:hover h1 {
+    ul.SmallCategoriesList li a:hover h1 {
         top: 41%;
     }
 
@@ -506,29 +506,29 @@ ul.bigListCourses-bottom li {
     }
 
 
-ul.TrzyKolumnyList {
+ul.ThreeColumnsList {
     overflow: hidden;
     list-style-type: none;
     font-size: 18px;
 }
 
-    ul.TrzyKolumnyList li {
+    ul.ThreeColumnsList li {
         float: left;
         position: relative;
         /*opacity: 0.2;*/
     }
 
-        ul.TrzyKolumnyList li article {
+        ul.ThreeColumnsList li article {
             height: 100%;
         }
 
 
-        ul.TrzyKolumnyList li a.kursSzczegolyLink {
+        ul.ThreeColumnsList li a.courseDetailsLink {
             display: block;
             height: 100%;
         }
 
-        ul.TrzyKolumnyList li a h1 {
+        ul.ThreeColumnsList li a h1 {
             background-color: rgba(255, 255, 255, 0);
             vertical-align: central;
             padding-top: 10px;
@@ -540,11 +540,11 @@ ul.TrzyKolumnyList {
             background-color: rgba(255, 255, 255, 0.85);
         }
 
-        ul.TrzyKolumnyList li a:hover h1 {
+        ul.ThreeColumnsList li a:hover h1 {
             background-color: rgba(255, 255, 255, 0.85);
         }
 
-        ul.TrzyKolumnyList li a img.kurs {
+        ul.ThreeColumnsList li a img.course {
             position: absolute;
             top: 0;
             left: 0;
@@ -553,7 +553,7 @@ ul.TrzyKolumnyList {
             z-index: -1;
         }
 
-        ul.TrzyKolumnyList li a:hover img.kurs {
+        ul.ThreeColumnsList li a:hover img.course {
         }
 
 .manageHeader {

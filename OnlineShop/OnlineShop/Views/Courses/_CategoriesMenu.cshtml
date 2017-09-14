@@ -1,0 +1,16 @@
+﻿@model IEnumerable<OnlineShop.Models.Category>
+@using OnlineShop.Infrastructure
+
+                      <nav class="CategoriesVertical">
+                          <ul>
+                              @foreach (var category in Model)
+                              {
+                                <li>
+                                    <a href="@Url.Action("List", "Courses", new { Name = category.Name.ToString() })" 
+                                       style="background-image: url(@Url.CategoriesIconsPath(category.ImageName));">
+                                        @category.Name
+                                    </a>
+                                </li>
+                              }                             
+                          </ul>
+                      </nav>

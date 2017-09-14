@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OnlineShop.Models.Course>
+@using OnlineShop.Infrastructure
+
+
+<div id="SectionCategoriesList">
+    <ul class="CoursesThreeColumns SmallCategoriesList">
+        @foreach (var course in Model)
+        {
+            <li>
+                <article>
+                    <a class="addToBasketLink" href="@Url.Action("AddToBasket","Basket", new { id = course.CourseId })">
+                        <img src="@Url.Content("~/Content/Images/koszyk.png")" />
+                    </a>
+                    @if (course.Bestseller)
+                {
+                        <div class="bestsellerFlag"></div>
+                    }
+                    <a class="courseDetailsLink" href="@Url.Action("Details","Courses", new { id = course.CourseId })">
+                        <img class="course" src="@Url.CoursesImagesPath(course.ImageName)" />
+                        <h1>
+                            @course.Author - @course.Name
+                        </h1>
+                    </a>
+                </article>
+            </li>
+        }
+        }
+    </ul>
+</div>
