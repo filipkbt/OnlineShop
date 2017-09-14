@@ -1,42 +1,56 @@
-﻿
-@{
-    ViewBag.Title = "Online shop";
-}
-
-    <nav class="categoriesHorizontal">
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div style="overflow: hidden;">			
+            <a id="basketHeaderLink" href="link">
+                Basket (0)
+                <span></span>
+            </a>
+			<a id="indexHeaderLogo" href="link">
+				<img src="../Content/Images/logo.png" class="center" />
+			</a>
+        </div>      
+    </header>
+	
+    <nav class="kategorieHorizontal">
         <ul>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/aspnet.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/aspnet.png); ">
                     ASP.NET
                 </a>
             </li>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/csharp.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/csharp.png); ">
                     C#
                 </a>
             </li>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/css.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/css.png); ">
                     CSS
                 </a>
             </li>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/javascript.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/javascript.png); ">
                     Java Script
                 </a>
             </li>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/jquery.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/jquery.png); ">
                     JQuery
                 </a>
             </li>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/xml.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/xml.png); ">
                     XML
                 </a>
             </li>
             <li>
-                <a href="link" style="background-image: url(../Content/Categories/html.png); ">
+                <a href="link" style="background-image: url(../Content/Kategorie/html.png); ">
                     HTML
                 </a>
             </li>
@@ -45,17 +59,17 @@
             <img id="baner" src="../Content/Images/baner.png" />
         </a>
     </nav>
-
-    <section>
+	
+	<section>
         <ul class="KursyTrzyKolumny duzaListaKursy">
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="link">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="kursSzczegolyLink" href="link">
                         <div class="bestsellerFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekcss.png" />
+                        <img class="kurs" src="../Content/Kursy/obrazekcss.png" />
                         <h1>
                             Tutaj będzie tytuł
                         </h1>
@@ -64,12 +78,12 @@
             </li>
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="link">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="kursSzczegolyLink" href="link">
                         <div class="bestsellerFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekhtml.png" />
+                        <img class="kurs" src="../Content/Kursy/obrazekhtml.png" />
                         <h1>
                             Tutaj będzie tytuł
                         </h1>
@@ -78,12 +92,12 @@
             </li>
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="link">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="kursSzczegolyLink" href="link">
                         <div class="bestsellerFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekjquery.png" />
+                        <img class="kurs" src="../Content/Kursy/obrazekjquery.png" />
                         <h1>
                             Tutaj będzie tytuł
                         </h1>
@@ -92,16 +106,17 @@
             </li>
         </ul>
     </section>
+
     <section>
         <ul class="KursyTrzyKolumny duzaListaKursy">
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="link">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="kursSzczegolyLink" href="link">
                         <div class="newFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekaspnet.png" />
+                        <img class="kurs" src="../Content/Kursy/obrazekaspnet.png" />
                         <h1>
                             Tutaj będzie tytuł
                         </h1>
@@ -110,12 +125,12 @@
             </li>
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="link">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="kursSzczegolyLink" href="link">
                         <div class="newFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekcsharp.png" />
+                        <img class="kurs" src="../Content/Kursy/obrazekcsharp.png" />
                         <h1>
                             Tutaj będzie tytuł
                         </h1>
@@ -124,12 +139,12 @@
             </li>
             <li>
                 <article>
-                    <a class="addToBasketLink" href="link">
+                    <a class="dodajDoKoszykaLink" href="link">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="courseDetailsLink" href="link">
+                    <a class="kursSzczegolyLink" href="link">
                         <div class="newFlag"></div>
-                        <img class="course" src="../Content/Courses/obrazekmvc.png" />
+                        <img class="kurs" src="../Content/Kursy/obrazekmvc.png" />
                         <h1>
                             Tutaj będzie tytuł
                         </h1>
@@ -138,7 +153,5 @@
             </li>
         </ul>
     </section>
-  
-
 
 

@@ -18,5 +18,10 @@ namespace OnlineShop.Controllers
 
             return View();
         }
+
+        public ActionResult StaticPages(string name)
+        {
+            return View(name);
+        }
     }
 }
