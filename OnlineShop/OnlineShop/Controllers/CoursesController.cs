@@ -34,6 +34,7 @@ namespace OnlineShop.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60000)]
         public ActionResult CategoriesMenu()
         {
             var categories = database.Categories.ToList();
