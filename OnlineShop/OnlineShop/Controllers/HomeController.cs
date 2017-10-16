@@ -25,7 +25,7 @@ namespace OnlineShop.Controllers
 
             if (cache.IsSet(Consts.categoriesCacheKey))
             {
-                categories= cache.Get(Consts.categoriesCacheKey) as List<Category>;
+                categories = cache.Get(Consts.categoriesCacheKey) as List<Category>;
             }
             else
             {
