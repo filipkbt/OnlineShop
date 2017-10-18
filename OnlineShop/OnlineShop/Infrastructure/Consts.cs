@@ -10,5 +10,6 @@ namespace OnlineShop.Infrastructure
         public const string newCoursesCacheKey = "NewCoursesCacheKey";
         public const string bestsellersCacheKey = "BestsellersCacheKey";
         public const string categoriesCacheKey = "CategoriesCacheKey";
+        public const string basketSessionKey = "BasketSessionKey";
     }
 }

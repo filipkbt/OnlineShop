@@ -31,7 +31,7 @@ namespace OnlineShop.Models
         public OrderStatus OrderStatus { get; set; }
         public decimal OrderPrice { get; set; }
 
-        List<OrderItem> OrderItems { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 
     public enum OrderStatus
