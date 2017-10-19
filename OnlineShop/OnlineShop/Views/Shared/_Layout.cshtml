@@ -8,8 +8,8 @@
 <body>
     <header>
         <div style="overflow: hidden;">
-            <a id="basketHeaderLink" href="link">
-                Basket (0)
+            <a id="basketHeaderLink" href="@Url.Content("~/Basket")">
+                Basket (<span id="basket-header-items-amount">@Html.Action("GetBasketItemsAmount","Basket")</span>)
                 <span></span>
             </a>
             <a id="indexHeaderLogo" href="@Url.Content("~/")">

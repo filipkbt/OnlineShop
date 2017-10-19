@@ -709,19 +709,19 @@ div.HeaderSection {
     text-align: center;
 }
 
-.SekcjaPrzyciski {
+.SectionButtons {
     overflow: hidden;
 }
 
-    .SekcjaPrzyciski :nth-child(1) {
+    .SectionButtons :nth-child(1) {
         float: left;
     }
 
-    .SekcjaPrzyciski :nth-child(2) {
+    .SectionButtons :nth-child(2) {
         float: right;
     }
 
-#CenaCalkowita {
+#TotalPrice {
     width: 100%;
     text-align: right;
     margin-top: 25px;
@@ -730,7 +730,7 @@ div.HeaderSection {
     font-size: 18px;
 }
 
-.PrzyciskLink {
+.ButtonLink {
     height: 40px;
     background-color: #0a5d7c;
     color: #dfdfdf;
@@ -742,14 +742,14 @@ div.HeaderSection {
     vertical-align: middle;
 }
 
-input.PrzyciskLink {
+input.ButtonLink {
     border: 0;
     line-height: 38px;
     height: 44px;
     cursor: pointer;
 }
 
-a.PrzyciskLink:visited, a.PrzyciskLink:link, a.PrzyciskLink:active {
+a.ButtonLink:visited, a.ButtonLink:link, a.ButtonLink:active {
     color: #dfdfdf;
 }
 

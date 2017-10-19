@@ -1,0 +1,88 @@
+﻿@using MvcSiteMapProvider.Web.Html
+@using OnlineShop.Infrastructure
+@model OnlineShop.ViewModels.BasketViewModel
+
+@{
+    ViewBag.Title = "Basket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="CategoriesListContent">
+    @Html.Action("CategoriesMenu", "Courses")
+    <div id="CategoriesListRightSection">
+        <div id="Breadcrumb">
+            <img src="../Content/Images/dommaly.png" />
+            <a href="link">
+                @Html.MvcSiteMap().SiteMapPath()
+            </a>
+        </div>
+        <section class="BasketSection">
+            <div class="HeaderSection" style="margin-bottom: 0px;">
+                <h1>Your basket</h1>
+            </div>
+            <table id="basketTable">
+                @foreach (var basketItem in Model.BasketItems)
+                {
+                    <tr id="basket-row-@basketItem.Course.CourseId">
+                        <td>
+                            <a href="@Url.Action("Details", "Courses", new { id = basketItem.Course.CourseId })">
+                                <img src="@Url.Content("~/Content/Courses/" + basketItem.Course.ImageName)" />
+                            </a>
+                        </td>
+                        <td><a href="@Url.Action("Details", "Courses", new { id = basketItem.Course.CourseId })">@basketItem.Course.Name</a></td>
+                        <td>Amount: <span id="basket-items-amount-@basketItem.Course.CourseId">@basketItem.Amount</span></td>
+                        <td>@String.Format("{0:0.##}", basketItem.Value) zł</td>
+                        <td><a class="deleteCourse" data-id="@basketItem.Course.CourseId" href="#">Delete</a></td>
+                    </tr>
+                }
+                <tr id="basket-empty-message" @if (Model.BasketItems != null && Model.BasketItems.Count > 0) { <text> class="hidden" </text>    }>
+                    <td>Your basket is empty.</td>
+                </tr>
+            </table>
+            <div id="TotalPrice" style="">
+                Total: <span id="total-price-value">@String.Format("{0:0.##}", Model.TotalPrice)</span> zł
+            </div>
+            <div class="SectionButtons">
+                <a class="ButtonLink" href="link">Continue shopping</a>
+                @if (Model.TotalPrice > 0)
+                {
+                    <a class="ButtonLink" id="basket-button-pay" href="@Url.Action("Pay","Basket")">Pay</a>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+@section Scripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryAndJqueryUI")
+
+    <script type="text/javascript">
+        $(function(){
+            $(".deleteCourse").click(function () {
+                var courseToDelete = $(this).attr("data-id");
+                if(courseToDelete != ''){
+                    $.post("/Basket/DeleteFromBasket/", { "courseId": courseToDelete },
+                    function (response) {
+                        if (response.DeletedItemAmount == 0) {
+                            $('#basket-row-' + response.DeletedItemId).fadeOut("slow", function () {
+                                if (response.BasketItemsAmount == 0) {
+                                    $("#basket-empty-message").removeClass("hidden");
+                                }
+                            });
+                        } else {
+                            $('#basket-items-amount-' + response.DeletedItemId).text(response.DeletedItemAmount);
+                        }
+
+                        if (response.BasketItemsAmount == 0) {
+                            $('#basket-button-pay').addClass('hidden');
+                            $('#TotalPrice').addClass('invisible');
+                        }
+                        $('#total-price-value').text(response.BasketTotalPrice);
+                        $('#basket-header-items-amount').text(response.BasketItemsAmount);
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+
+}

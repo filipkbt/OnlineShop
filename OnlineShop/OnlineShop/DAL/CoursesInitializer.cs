@@ -30,9 +30,9 @@ namespace OnlineShop.DAL
 
             var courses = new List<Course>
             {
-                 new Course() { CourseId=1, Author="Filip", Name="Asp.Net", CategoryId=1, Price=0, Bestseller=true, ImageName="obrazekaspnet.png",
+                 new Course() { CourseId=1, Author="Filip", Name="Asp.Net", CategoryId=1, Price=90, Bestseller=true, ImageName="obrazekaspnet.png",
                 AddDate = DateTime.Now, Description="ASP.NET - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
-                new Course() { CourseId=2, Author="Filip", Name="Asp.Net Mvc", CategoryId=1, Price=0, Bestseller=true, ImageName="obrazekmvc.png",
+                new Course() { CourseId=2, Author="Filip", Name="Asp.Net Mvc", CategoryId=1, Price=95, Bestseller=true, ImageName="obrazekmvc.png",
                 AddDate = DateTime.Now, Description="ASP.NET MVC - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
                 new Course() { CourseId=3, Author="Filip", Name="Asp.Net Mvc - Sklep Internetowy", CategoryId=1, Price=100, Bestseller=true, ImageName="obrazekmvc2.png",
                 AddDate = DateTime.Now, Description="ASP.NET MVC Course - Online shop - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
