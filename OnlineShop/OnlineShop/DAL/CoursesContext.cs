@@ -1,4 +1,5 @@
-﻿using OnlineShop.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace OnlineShop.DAL
 {
-    public class CoursesContext : DbContext
+    public class CoursesContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Course> Courses { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -19,16 +20,23 @@ namespace OnlineShop.DAL
         {
 
         }
+
         static CoursesContext()
         {
             Database.SetInitializer<CoursesContext>(new CoursesInitializer());
         }
 
+        public static CoursesContext Create()
+        {
+            return new CoursesContext();
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+
     }
 }
