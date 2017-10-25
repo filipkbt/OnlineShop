@@ -11,7 +11,13 @@
       <mvcSiteMapNode title="Order details" controller="Basket" action="Pay"/>
         <mvcSiteMapNode title="Order confirmation" controller="Basket" action="OrderConfirmation"/>
     </mvcSiteMapNode>
-
+    <mvcSiteMapNode title="Account" controller="Account" action="Index">
+      <mvcSiteMapNode title="Registration" controller="Account" action="Register"/>
+      <mvcSiteMapNode title="Login" controller="Account" action="Login"/>
+      <mvcSiteMapNode title="Edit product" controller="Manage" action="AddProduct"/>
+      <mvcSiteMapNode title="Your personal data" controller="Manage" action="Index"/>
+      <mvcSiteMapNode title="Orders" controller="Manage" action="OrdersList"/>      
+    </mvcSiteMapNode>
+    
   </mvcSiteMapNode>
-
 </mvcSiteMap>

@@ -1,0 +1,27 @@
+﻿@using MvcSiteMapProvider.Web.Html
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="CategoriesListContent">
+     @Html.Action("CategoriesMenu", "Courses")
+
+     <div id="CategoriesListRightSection">
+         <div id="Breadcrumb">
+             <img src="../Content/Images/dommaly.png"/>
+             @Html.MvcSiteMap().SiteMapPath()
+         </div>
+         <section class="BasketSection">
+             <div class="HeaderSection" style="margin-bottom: 0px;">
+                 <h1>
+                     @RenderSection("SectionTitle", required: false)
+                 </h1>
+             </div>
+             @RenderBody()
+         </section>
+     </div>
+</div>
+@section Scripts
+{
+    @RenderSection("Scripts", required: false)
+}
