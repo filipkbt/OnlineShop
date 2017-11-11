@@ -15,6 +15,8 @@ namespace OnlineShop.Models
         public string Address { get; set; }
 
         public string City { get; set; }
+
+        public string ZipCode { get; set; }
         [RegularExpression(@"(\+\d{2})*[\d\s-]+", ErrorMessage = "Wrong phone number")]
         public string Phone { get; set; }
 

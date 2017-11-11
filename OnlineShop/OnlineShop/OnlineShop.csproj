@@ -360,6 +360,10 @@
     <Compile Include="Migrations\201710252032359_AddAspIdentity.Designer.cs">
       <DependentUpon>201710252032359_AddAspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111403446_Orders.cs" />
+    <Compile Include="Migrations\201711111403446_Orders.Designer.cs">
+      <DependentUpon>201711111403446_Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasketItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -413,6 +417,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Basket\Pay.cshtml" />
+    <Content Include="Views\Basket\OrderConfirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -433,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710252032359_AddAspIdentity.resx">
       <DependentUpon>201710252032359_AddAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111403446_Orders.resx">
+      <DependentUpon>201711111403446_Orders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

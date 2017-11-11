@@ -98,7 +98,7 @@ namespace OnlineShop.Infrastructure
         {
             var basket = DownloadBasket();
             newOrder.OrderDate = DateTime.Now;
-            // newOrder.UserId = userId;
+            newOrder.UserId = userId;
 
             database.Orders.Add(newOrder);
 
