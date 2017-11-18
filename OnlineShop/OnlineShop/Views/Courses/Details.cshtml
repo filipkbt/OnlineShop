@@ -28,16 +28,16 @@
                         @Model.Author
                     </h2>
                 </div>
-                <div id="KursCena">
+                <div id="CoursePrice">
                     <div>
                         @Model.Price<span>PLN</span>
                     </div>
                     <a href="@Url.Action("AddToBasket","Basket", new { id = Model.CourseId })"></a>
                 </div>
-                <div id="KursOpis">
+                <div id="CourseDescription">
                     @Model.Description
                 </div>
-                <div id="KursInfo">
+                <div id="CourseInfo">
                     @Model.ShortDescription
                 </div>
             </div>

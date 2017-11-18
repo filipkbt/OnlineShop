@@ -247,7 +247,6 @@
     <Content Include="Content\Images\new.png" />
     <Content Include="Content\Images\searchlogo.png" />
     <Content Include="Content\Images\upload.png" />
-    <Content Include="Content\Prototype.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -332,6 +331,7 @@
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\CoursesContext.cs" />
     <Compile Include="DAL\CoursesInitializer.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -378,6 +378,7 @@
     <Compile Include="ViewModels\BasketDeletingViewModel.cs" />
     <Compile Include="ViewModels\BasketViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -419,6 +420,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Basket\Pay.cshtml" />
     <Content Include="Views\Basket\OrderConfirmation.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Shared\_ManageLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

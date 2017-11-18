@@ -1,0 +1,60 @@
+﻿@using MvcSiteMapProvider.Web.Html
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div style="overflow:hidden; margin-bottom: 30px">
+            <a class="manageLink" href="@Url.Action("Index","Home")">
+                Homepage
+            </a>
+            <a class="manageLink" href="@Url.Action("Index","Manage")">
+                Your account
+            </a>
+            <a id="basketHeaderLink" href="@Url.Action("Index","Home")">
+                Basket(<span id="basket-header-amount-of-items">@Html.Action("GetBasketItemsAmount","Basket")</span>)
+                <span id="cart-header-logo"></span>
+            </a>
+            @Html.Partial("_LoginPartial")
+        </div>
+        <div id="Breadcrumb">
+            <img src="@Url.Content("~/Content/Images/dommaly.png")" />
+            @Html.MvcSiteMap().SiteMapPath()
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="@Url.Action("StaticPages","Home", new { name = "AboutUs" })">About Us</a></li>
+                <li><a href="@Url.Action("StaticPages","Home", new { name = "Community" })">Community</a></li>
+                <li><a href="@Url.Action("StaticPages","Home", new { name = "Reviews" })">Reviews</a></li>
+                <li><a href="@Url.Action("StaticPages","Home", new { name = "Help" })">Help</a></li>
+                <li><a href="@Url.Action("StaticPages","Home", new { name = "Regulations" })">Regulations</a></li>
+                <li><a href="@Url.Action("StaticPages","Home", new { name = "Contact" })">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="footerLogo">
+        </div>
+        <div id="footerCopyright">
+            Copyright &copy; 2017 Filip Kubat
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

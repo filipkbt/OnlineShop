@@ -364,7 +364,7 @@ nav.CategoriesVertical {
         background-position: center center;
     }
 
-#KursOpis {
+#CourseDescription{
     font-size: 18px;
     line-height: 22px;
     color: #39312E;
@@ -373,7 +373,7 @@ nav.CategoriesVertical {
     text-align: justify;
 }
 
-#KursInfo {
+#CourseInfo {
     font-size: 18px;
     line-height: 22px;
     color: #39312E;
@@ -701,7 +701,7 @@ div.HeaderSection {
                 text-align: center;
             }
 
-#koszyk-empty-message {
+#basket-empty-message {
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
