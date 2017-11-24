@@ -1,0 +1,113 @@
+﻿@model IEnumerable<OnlineShop.Models.Order>
+@{
+    ViewBag.Title = "OrdersList";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<div>
+    <hr />
+    <h2 class="manageHeader">Your orders</h2>
+    <div>
+        @if (Model.Any())
+        {
+            <table id="orders-table">
+                @foreach (var order in Model)
+                {
+                    <tr @if (order.OrderStatus == OnlineShop.Models.OrderStatus.New) { <text> class="newOrder" </text>      }>
+                        <td>
+                            <strong>OrderID : </strong>@order.OrderId
+                        </td>
+                        <td>
+                            <strong>Date: </strong>@order.OrderDate.ToString("dd-MM-yyyy")
+                        </td>
+                        <td>
+                            <strong>Status: </strong><br />
+
+                            @if (ViewBag.UserIsAdmin)
+                            {
+                                using (Html.BeginForm("ChangeOrderStatus", "Manage"))
+                                {
+                                    @Html.HiddenFor(o => order.OrderId)
+                                    @Html.EnumDropDownListFor(o => order.OrderStatus, new { @class = "ChangeOrderStatus" })
+                                }
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(o => order.OrderStatus)
+                            }
+                        </td>
+                        <td>
+                            <strong>Order details:</strong><br />
+                            @order.FirstName @order.SecondName <br />
+                            @order.Address <br />
+                            @order.ZipCode @order.City <br />
+                        </td>
+                        <td>
+                            <strong>Comments:</strong><br />
+                            @order.Comment
+                        </td>
+                        <td>
+                            <strong>Total price: </strong>@order.OrderPrice zł
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <section>
+                                <ul class="ThreeColumnsList bigListCourses-bottom">
+
+                                    @foreach (var orderItem in order.OrderItems)
+                                    {
+                                        <li>
+                                            <article>
+                                                <a class="courseDetailsLink" href="@Url.Action("Details","Courses",new { id = orderItem.CourseId })">
+                                                    <img class="course" src="@Url.Content("~/Content/Courses/" + orderItem.course.ImageName)" />
+                                                    <h1>
+                                                        @orderItem.course.Author - @orderItem.course.Name <br />
+                                                        <strong>Amount: @orderItem.Quantity, total: @(orderItem.Quantity * orderItem.ItemPrice)</strong>
+                                                    </h1>
+                                                </a>
+                                            </article>
+                                        </li>
+                                    }
+                                </ul>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6"></td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div style="text-align:center; margin-top:50px; margin-bottom:50px">
+                No orders.
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+
+    <script>
+        $(".ChangeOrderStatus").on('change', function (e) {
+
+            var form = $(this.form);
+            var tr = form.closest("tr");
+            var action = form.attr("action");
+            var serializedForm = form.serialize();
+
+            $.post(action, serializedForm).done(function (data) {
+                if (data == '@OnlineShop.Models.OrderStatus.New.ToString()') {
+                    tr.addClass("newOrder");
+                }
+                else {
+                    tr.removeClass("newOrder");
+                }
+            });
+        });
+    </script>
+}

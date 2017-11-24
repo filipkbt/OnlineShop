@@ -17,6 +17,7 @@ namespace OnlineShop.Migrations
         protected override void Seed(OnlineShop.DAL.CoursesContext context)
         {
             CoursesInitializer.SeedCoursesData(context);
+            CoursesInitializer.SeedUsers(context);
         }
     }
 }

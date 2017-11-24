@@ -1,4 +1,6 @@
-﻿using OnlineShop.Migrations;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using OnlineShop.Migrations;
 using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
@@ -55,6 +57,35 @@ namespace OnlineShop.DAL
             context.SaveChanges();
         }
 
+        public static void SeedUsers(CoursesContext database)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(database));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(database));
 
+            const string name = "admin@onlineshop.pl";
+            const string password = "Password!123";
+            const string roleName = "Admin";
+
+            var user = userManager.FindByName(name);
+            if(user == null)
+            {
+                user = new ApplicationUser { UserName = name, Email = name, UserDetails = new UserDetails() };
+                var result = userManager.Create(user, password);
+            }
+
+            //create role Admin if doesn't exist
+            var role = roleManager.FindByName(roleName);
+            if(role == null)
+            {
+                role = new IdentityRole(roleName);
+                var roleResult = roleManager.Create(role);
+            }
+
+            var rolesForUser = userManager.GetRoles(user.Id);
+            if (!rolesForUser.Contains(role.Name))
+            {
+                var result = userManager.AddToRole(user.Id, role.Name);
+            }
+        }
     }
 }

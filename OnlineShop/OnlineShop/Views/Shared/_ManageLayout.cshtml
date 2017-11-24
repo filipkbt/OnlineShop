@@ -21,6 +21,9 @@
             <a class="manageLink" href="@Url.Action("Index","Manage")">
                 Your account
             </a>
+            <a class="manageLink" href="@Url.Action("OrdersList","Manage")" style="width: 80px">
+                Orders
+            </a>
             <a id="basketHeaderLink" href="@Url.Action("Index","Home")">
                 Basket(<span id="basket-header-amount-of-items">@Html.Action("GetBasketItemsAmount","Basket")</span>)
                 <span id="cart-header-logo"></span>

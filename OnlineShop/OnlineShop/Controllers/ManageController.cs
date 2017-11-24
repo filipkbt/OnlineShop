@@ -10,12 +10,16 @@ using static OnlineShop.App_Start.IdentityConfig;
 using Microsoft.Owin.Security;
 using OnlineShop.ViewModels;
 using OnlineShop.Models;
+using System.Data.Entity;
+using OnlineShop.DAL;
 
 namespace OnlineShop.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
+        private CoursesContext database = new CoursesContext();
+
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -121,6 +125,36 @@ namespace OnlineShop.Controllers
         {
             ChangePasswordSuccess,
             Error
+        }
+
+        public ActionResult OrdersList()
+        {
+            bool isAdmin = User.IsInRole("Admin");
+            ViewBag.UserIsAdmin = isAdmin;
+
+            IEnumerable<Order> userOrders;
+
+            if (isAdmin)
+            {
+                userOrders = database.Orders.Include("OrderItems").OrderByDescending(o => o.OrderDate).ToArray();
+            }
+            else
+            {
+                var userId = User.Identity.GetUserId();
+                userOrders = database.Orders.Where(o => o.UserId == userId).Include("OrderItems").OrderByDescending(o => o.OrderDate).ToArray();
+            }
+            return View(userOrders);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public OrderStatus ChangeOrderStatus(Order order)
+        {
+            Order orderToEdit = database.Orders.Find(order.OrderId);
+            orderToEdit.OrderStatus = order.OrderStatus;
+            database.SaveChanges();
+
+            return order.OrderStatus;
         }
 
         private ApplicationUserManager _userManager;
