@@ -40,6 +40,10 @@
                 <div id="CourseInfo">
                     @Model.ShortDescription
                 </div>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <a href="@Url.Action("AddCourse","Manage", new {courseId = Model.CourseId})" style="margin-top:20px; font-weight:bold;display:block">Edit</a>
+                }
             </div>
         </section>
     </div>

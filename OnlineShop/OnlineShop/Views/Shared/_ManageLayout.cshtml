@@ -24,8 +24,14 @@
             <a class="manageLink" href="@Url.Action("OrdersList","Manage")" style="width: 80px">
                 Orders
             </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="manageLink" href="@Url.Action("AddCourse","Manage")">
+                    Add course
+                </a>
+            }
             <a id="basketHeaderLink" href="@Url.Action("Index","Home")">
-                Basket(<span id="basket-header-amount-of-items">@Html.Action("GetBasketItemsAmount","Basket")</span>)
+                Basket(<span id="basket-header-amount-of-items">@Html.Action("GetBasketItemsAmount", "Basket")</span>)
                 <span id="cart-header-logo"></span>
             </a>
             @Html.Partial("_LoginPartial")
