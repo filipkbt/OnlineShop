@@ -17,7 +17,6 @@ namespace OnlineShop.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            
 
             ICacheProvider cache = new DefaultCacheProvider();
 

@@ -1,3 +1,4 @@
+
 namespace OnlineShop.Migrations
 {
     using DAL;
