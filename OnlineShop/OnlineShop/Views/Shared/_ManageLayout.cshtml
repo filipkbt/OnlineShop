@@ -29,6 +29,9 @@
                 <a class="manageLink" href="@Url.Action("AddCourse","Manage")">
                     Add course
                 </a>
+                <a class="manageLink" href="@Url.Action("~/elmah")">
+                    Logs
+                </a>
             }
             <a id="basketHeaderLink" href="@Url.Action("Index","Home")">
                 Basket(<span id="basket-header-amount-of-items">@Html.Action("GetBasketItemsAmount", "Basket")</span>)

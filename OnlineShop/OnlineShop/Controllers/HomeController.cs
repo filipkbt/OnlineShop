@@ -1,4 +1,5 @@
 ﻿using MvcSiteMapProvider.Caching;
+using NLog;
 using OnlineShop.DAL;
 using OnlineShop.Infrastructure;
 using OnlineShop.Models;
@@ -14,10 +15,11 @@ namespace OnlineShop.Controllers
     public class HomeController : Controller
     {
         private CoursesContext database = new CoursesContext();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         // GET: Home
         public ActionResult Index()
         {
-
+            logger.Info("test");
             ICacheProvider cache = new DefaultCacheProvider();
 
             List<Category> categories;
